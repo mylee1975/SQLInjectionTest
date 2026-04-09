@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Injection Lab 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="lab-container">
+        <header>
+            <div class="status-badge">VULNERABLE MODE</div>
+            <h1>🛡️ SQL Injection Laboratory</h1>
+            <p>Target: User Profile Lookup v1.0.4</p>
+        </header>
+
+        <main>
+            <!-- 검색 섹션 -->
+            <section class="search-section">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="유저 아이디 입력 (예: admin, guest)" autocomplete="off">
+                    <button id="searchBtn">SEARCH</button>
+                </div>
+                
+                <!-- 실행된 실제 SQL 쿼리 표시 (교육용) -->
+                <div id="queryDisplay" class="query-box">
+                    <span class="query-label">Executed SQL:</span>
+                    <code id="currentQuery">-- Waiting for input --</code>
+                </div>
+            </section>
+
+            <!-- 결과 출력 섹션 -->
+            <section class="result-section">
+                <!-- 에러 콘솔 (SQL 에러 출력) -->
+                <div id="errorConsole" class="error-console hidden">
+                    <div class="error-title">⚠️ DATABASE OPERATIONAL ERROR</div>
+                    <pre id="errorMessage"></pre>
+                </div>
+
+                <!-- 데이터 결과 테이블 -->
+                <div id="tableContainer" class="table-container hidden">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultBody"></tbody>
+                    </table>
+                </div>
+                
+                <div id="noResult" class="empty-state hidden">No matching user records found.</div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Security Education Lab. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
